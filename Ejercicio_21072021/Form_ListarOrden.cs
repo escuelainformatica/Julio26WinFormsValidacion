@@ -35,13 +35,14 @@ namespace Ejercicio_21072021
 
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
-
-
             Form_Ordenes form_Orden = new Form_Ordenes();
             form_Orden.ShowDialog();
-
-            dataGridView1.DataSource = PedidoRepo.Listar();
-
+            try { 
+                dataGridView1.DataSource = PedidoRepo.Listar();
+            } catch(Exception ex)
+            {
+                MessageBox.Show("No se puede leer los pedidos");
+            }
         }
     }
 }
